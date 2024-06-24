@@ -1,0 +1,85 @@
+{% set price = ad.price / 100 %}
+
+{% set mainPicture = asset('uploads/ads/' ~ ad.mainPicture) %}
+{% set markPicture = asset('uploads/ads/' ~ ad.mark.picture) %}
+
+
+{% if ad.reserved %}
+	<div class="bg-white shadow-lg rounded-lg overflow-hidden m-2">
+		<a href="{{ path('app_ad_show', {'slug': ad.slug}) }}">
+
+			<img class="w-full h-56 object-cover object-center" src="{{ mainPicture}}" alt="{{ ad.title ~ '-' ~ ad.reference }}">
+		</a>
+		<div class="p-4">
+			<div class="flex items-center justify-between">
+				<p class="text-gray-500 text-sm border-2 p-1 rounded-full">{{ad.year}}</p>
+				{% if ad.mark.picture  is not null %}
+					<img src="{{ markPicture}}" alt="{{ ad.mark.name }}" class="object-contain rounded-full" style="object-position: center;width: 40px;height: 40px;">
+
+				{% else %}
+					<span class="text-sm font-medium text-[#1f2641]">{{ad.mark.name}}</span>
+
+				{% endif %}
+
+			</div>
+			<a href="">
+				<h2 class="text-gray-900 title-font text-lg font-medium text-center">{{ ad.title | slice(0, 25) }}
+				</h2>
+			</a>
+			<p class="text-gray-700 text-sm text-center">{{price | number_format(0, '.', ' ') ~ ' €'}}</p>
+
+			<p class="text-gray-500 text-sm">{{ad.mileage | number_format(0, '.', ' ') ~ ' Kms'}}</p>
+
+		</div>
+		<div class="flex items-center justify-center px-4 py-2 bg-[#424890]">
+			<a href="{{ path('app_ad_show', {'slug': ad.slug}) }}" class="bg-[#f75842] text-white px-4 py-2 rounded hover:bg-[#00bf8e]">Annonce réservée
+
+				<i class='bx bxs-calendar-check'></i>
+
+			</a>
+		</div>
+	</div>
+
+{% else %}
+	<div class="bg-white shadow-lg rounded-lg overflow-hidden m-2">
+
+<a href="{{ path('app_ad_show', {'slug': ad.slug}) }}">
+
+			<img class="w-full h-56 object-cover object-center" src="{{ mainPicture}}" alt="{{ ad.title ~ '-' ~ ad.reference }}">
+
+
+		</a>
+		<div class="p-4">
+			<div class="flex items-center justify-between">
+				<p class="text-gray-500 text-sm border-2 p-1 rounded-full">{{ad.year}}</p>
+				{% if ad.mark.picture  is not null %}
+<img src="{{ markPicture | imagine_filter('my_thumb_2') }}" alt="{{ ad.mark.name }}" class="object-contain rounded-full" style="object-position: center;width: 40px;height: 40px;" loading="lazy">
+
+
+
+				{% else %}
+					<span class="text-sm font-medium text-[#1f2641]">{{ad.mark.name}}</span>
+
+				{% endif %}
+
+			</div>
+			<a href="">
+				<h2 class="text-gray-900 title-font text-lg font-medium text-center">{{ ad.title | slice(0, 25) }}
+
+
+				</h2>
+			</a>
+			<p class="text-gray-700 text-sm text-center">{{price | number_format(0, '.', ' ') ~ ' €'}}</p>
+
+			<p class="text-gray-500 text-sm">{{ad.mileage | number_format(0, '.', ' ') ~ ' Kms'}}</p>
+
+		</div>
+		<div class="flex items-center justify-center px-4 py-2 bg-[#f0f9ff]">
+			<a href="{{ path('app_ad_show', {'slug': ad.slug}) }}" class="bg-[#6c63ff] text-white px-4 py-2 rounded hover:bg-[#00bf8e]">Voir l'annonce
+				<i class='bx bx-right-arrow-alt'></i>
+			</a>
+
+		</div>
+	</div>
+
+{% endif %}

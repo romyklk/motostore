@@ -1,0 +1,308 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Accueil
+{% endblock %}
+
+{% block body %}
+	<section class="bg-[#1f2641]" style="background-image: url({{asset('uploads/home.png') | imagine_filter('my_thumb_3')}}); background-size: contain; background-position: center;background-repeat: no-repeat;" loading="lazy">
+
+
+		<div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+			<div class="mx-auto max-w-xl text-center">
+				<h1 class="text-3xl font-extrabold sm:text-5xl text-[#f0f9ff]">
+					Prêt à repousser vos limites ?
+
+					{# <em class="font-extrabold text-[#00bf8e] sm:block ">
+																																																																																																																																																																																					De la puissance brute à l'élégance sophistiquée.
+																																																																																																																																																																																				</em> #}
+				</h1>
+
+				<p class="mt-4 sm:text-xl/relaxed text-[#f0f9ff]">
+					<strong>Trouvez la moto qui correspond à votre style de vie et à vos ambitions sur la route.</strong>
+
+				</p>
+
+				<div class="mt-8 flex flex-wrap justify-center gap-4">
+					<a href="{{path('app_ad')}}" class="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto" href="#">
+
+						Voir nos marques
+					</a>
+
+					{# <a class="block w-full rounded px-12 py-3 text-sm font-medium text-red-600 shadow hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto" href="#">
+																																																																																																																																																																																					Learn More
+																																																																																																																																																																																				</a> #}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-[#f0f9ff] py-16">
+		<div class="mx-auto max-w-screen-xl px-4">
+			<div class="text-center">
+				<h2 class="text-3xl font-extrabold sm:text-5xl text-[#1f2641]">
+					Commencez votre aventure
+				</h2>
+
+				<p class="mt-4 sm:text-xl/relaxed text-[#1f2641]">
+					Achetez en 3 étapes simples !
+				</p>
+			</div>
+
+			<div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
+				<div class="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded shadow-lg">
+					<i class='bx bxs-search-alt-2 text-5xl text-[#1f2641]'></i>
+					<h3 class="text-xl font-semibold text-[#1f2641]">
+						Faites votre choix
+					</h3>
+					<p class="text-[#1f2641]">
+						Parcourez notre catalogue et trouvez la moto de vos rêves.Nous avons des motos pour tous les goûts et tous les budgets.
+
+					</p>
+				</div>
+
+				<div class="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded shadow-lg">
+					<i class='bx bxs-checkbox-checked text-5xl text-[#1f2641]'></i>
+
+					<h3 class="text-xl font-semibold text-[#1f2641]">
+						Validez votre choix
+
+					</h3>
+					<p class="text-[#1f2641]">
+						Ajoutez votre moto préférée au panier et passez à l'étape suivante.
+					</p>
+				</div>
+
+				<div class="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded shadow-lg">
+					<i class='bx bxs-key text-5xl text-[#1f2641]'></i>
+
+					<h3 class="text-xl font-semibold text-[#1f2641]">
+						Recevez votre moto !
+
+					</h3>
+					<p class="text-[#1f2641]">
+						Une fois votre commande validée, nous vous livrons votre moto à l'adresse de votre choix. Vous n'avez plus qu'à profiter de la route !
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-[#1f2641] py-16">
+		<div class="mx-auto max-w-screen-xl px-4">
+			<div class="text-center">
+				<h2 class="text-3xl font-extrabold sm:text-5xl text-[#f0f9ff]">
+					Nos offres du moment
+				</h2>
+			</div>
+			<div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+
+				{% for ad in ads %}
+					{% include 'partials/_ad_card.html.twig' %}
+				{% endfor %}
+
+
+			</div>
+
+
+		</div>
+	</section>
+
+	<section class="bg-[#f0f9ff] py-16">
+		<div class="mx-auto max-w-screen-xl px-4">
+			<div class="text-center">
+				<h2 class="text-3xl font-extrabold sm:text-5xl text-[#1f2641]">
+					Nos Marques
+				</h2>
+
+			</div>
+
+			<div class="mt-12 grid grid-cols-3 gap-8 md:grid-cols-5 lg:grid-cols-9">
+				{% for mark in marks %}
+					{% if mark.picture is not null %}
+						{% include 'partials/_mark_logo_html.twig' %}
+					{% endif %}
+				{% endfor %}
+			</div>
+
+
+		</div>
+	</section>
+
+	<section class="bg-[#1f2641] py-16">
+		<div class="mx-auto max-w-screen-xl px-4">
+			<div class="text-center">
+				<h2 class="text-3xl font-extrabold sm:text-5xl text-[#f0f9ff]">
+					Pourquoi nous choisir ?
+				</h2>
+
+				<p class="mt-4 sm:text-xl/relaxed text-[#f0f9ff]">
+					Une expérience unique pour chaque client
+				</p>
+			</div>
+
+			<div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
+				<div class="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded shadow-lg">
+					<img src="{{asset('uploads/m9.png') | imagine_filter('my_thumb_3')}}" alt="partner1" class="w-full h-100 object-cover rounded">
+
+
+				</div>
+
+				<div class="flex flex-col items-center justify-center gap-4 p-4 bg-[#1f2641] rounded">
+					<div class="text-center bg-slate-50 p-4 rounded-lg shadow-lg md:mr[-10rem] md:ml-[-10rem]">
+
+						<h3 class="text-xl font-semibold text-[#1f2641]">
+							Un service client à votre écoute
+						</h3>
+						<p class="text-[#1f2641]">
+							Notre mission est de vous offrir une expérience unique et personnalisée pour chaque client. Nous mettons tout en oeuvre pour vous proposer des motos de qualité, un service client réactif et des offres adaptées à vos besoins. Que vous soyez un passionné de moto ou un simple amateur, nous avons la moto qu'il vous faut !
+							<br>
+							Depuis plus de 10 ans, nous mettons notre expertise à votre service pour vous proposer des motos de qualité et un service client réactif. Notre équipe de passionnés est là pour vous conseiller et vous accompagner dans le choix de votre moto. N'hésitez pas à nous contacter pour toute demande d'information ou de devis.
+						</p>
+						<a href="{{path('app_contact')}}" class="inline-block  rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto my-3">
+							Contactez-nous
+						</a>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+	<link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet"/>
+
+	<script type="module">
+		import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm'
+
+const keenSlider = new KeenSlider('#keen-slider', {
+loop: true,
+slides: {
+origin: 'center',
+perView: 1.25,
+spacing: 16
+},
+breakpoints: {
+'(min-width: 1024px)': {
+slides: {
+origin: 'auto',
+perView: 2.5,
+spacing: 32
+}
+}
+}
+}, [])
+
+const keenSliderPrevious = document.getElementById('keen-slider-previous')
+const keenSliderNext = document.getElementById('keen-slider-next')
+
+keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
+keenSliderNext.addEventListener('click', () => keenSlider.next())
+	</script>
+
+	<section class="bg-gray-50">
+		<div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
+			<div class="max-w-7xl items-end justify-between sm:flex sm:pe-6 lg:pe-8">
+				<h2 class="max-w-xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+					Ce que nos clients disent de nous
+				</h2>
+
+				<div class="mt-8 flex gap-4 lg:mt-0">
+					<button aria-label="Previous slide" id="keen-slider-previous" class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 rtl:rotate-180">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+						</svg>
+					</button>
+
+					<button aria-label="Next slide" id="keen-slider-next" class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white">
+						<svg class="size-5 rtl:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<div class="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
+				<div id="keen-slider" class="keen-slider">
+					<div class="keen-slider__slide">
+						<blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+							<div>
+								<div class="mt-4">
+									<p class="mt-4 leading-relaxed text-gray-700">
+										"Je recommande vivement.J'en suis très satisfait. Le service client est au top et les motos sont de qualité. Je n'hésiterai pas à revenir pour mon prochain achat."
+									</p>
+								</div>
+							</div>
+
+							<footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+								&mdash; Anna
+							</footer>
+						</blockquote>
+					</div>
+
+					<div class="keen-slider__slide">
+						<blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+							<div>
+
+								<div class="mt-4">
+
+
+									<p class="mt-4 leading-relaxed text-gray-700">
+										"J'ai acheté ma première moto chez eux et je ne regrette pas. Le service client est très réactif ."
+									</p>
+								</div>
+							</div>
+
+							<footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+								&mdash; Khan
+							</footer>
+						</blockquote>
+					</div>
+
+					<div class="keen-slider__slide">
+						<blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+							<div>
+
+								<div class="mt-4">
+
+
+									<p class="mt-4 leading-relaxed text-gray-700">
+										"Pour mon dernier achat, j'ai choisi MotoDreamer et je ne suis pas déçue. Le service client est très professionnel."
+									</p>
+								</div>
+							</div>
+
+							<footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+								&mdash; Michael Scott
+							</footer>
+						</blockquote>
+					</div>
+					<div class="keen-slider__slide">
+						<blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+							<div>
+
+								<div class="mt-4">
+
+
+									<p class="mt-4 leading-relaxed text-gray-700">
+										"Je recommande vivement.J'en suis très satisfait. Le service client est au top et les motos sont de qualité. Je n'hésiterai pas à revenir pour mon prochain achat."
+									</p>
+								</div>
+							</div>
+
+							<footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+								&mdash; Martin
+							</footer>
+						</blockquote>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}

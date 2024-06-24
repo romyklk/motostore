@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Nos annonces
+{% endblock %}
+
+
+{% block body %}
+
+
+
+<section class="relative" style="background-image: url({{asset('uploads/duc4.jpg') | imagine_filter('my_thumb_3')}}); background-size: cover; background-position: center;background-repeat: no-repeat;aspect-ratio: 16/9;">
+
+
+		<div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
+			<div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+				<h4 class="text-3xl font-extrabold sm:text-5xl text-white">
+					Bienvenue dans notre boutique.
+				</h4>
+				<p>
+					<strong class="block font-extrabold text-white">
+						Découvrez notre sélection exclusive.
+					</strong>
+				</p>
+
+
+			</div>
+		</div>
+	</section>
+
+	{% include 'partials/_search_filter_bar.html.twig' %}
+
+
+	<section class="container mx-auto px-5 py-5">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+			{% if ads|length >=1 %}
+				{% for ad in ads %}
+					{% include 'partials/_shop_ad_card.html.twig' %}
+				{% endfor %}
+
+			{% else %}
+				<p class="text-center">Aucune annonce ne correspond à votre recherche.</p>
+			{% endif %}
+
+		</div>
+	</section>
+
+	{# pagination #}
+<section
+	class="container mx-auto px-5 py-5 flex justify-center">
+	{% if ads|length >= 1 %}
+		{% do ads.setPageRange(2) %}
+		{{ knp_pagination_render(ads, 'partials/_pagination.html.twig') }}
+	{% endif %}
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	-
+	{{ page.pageTitle }}
+{% endblock %}
+
+
+{% block body %}
+	{% include 'partials/pageTemplate.html.twig'  %}
+
+{% endblock %}

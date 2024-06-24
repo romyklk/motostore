@@ -1,17 +1,102 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="fr" oncontextmenu="return false">
+	<head>
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		<script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+		<script type="text/javascript" charset="UTF-8">
+			document.addEventListener('DOMContentLoaded', function () {
+			cookieconsent.run({
+			"notice_banner_type": "simple",
+			"consent_type": "express",
+			"palette": "dark",
+			"language": "fr",
+			"page_load_consent_levels": ["strictly-necessary"],
+			"notice_banner_reject_button_hide": false,
+			"preferences_center_close_button_hide": false,
+			"page_refresh_confirmation_buttons": false,
+			"website_name": "Car Dream",
+			"website_privacy_policy_url": "https://127.0.0.1:8000/politique-de-confidentialite"
+
+			});
+			});
+		</script>
+
+		<noscript>Cookie Consent by
+			<a href="https://www.freeprivacypolicy.com/">Free Privacy Policy Generator</a>
+		</noscript>
+	
+
+
+		<meta charset="UTF-8">
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+
+			document.addEventListener('contextmenu', function (e) {
+			e.preventDefault();
+			alert('Merci de ne pas les copier.');
+			});
+			document.addEventListener('copy', function (e) {
+			e.preventDefault();
+			alert('Copie de texte désactivée.');
+			});
+
+			document.addEventListener('dragstart', function (e) {
+			var target = e.target;
+			if (target.nodeName === 'IMG') {
+			e.preventDefault();
+			alert('Enregistrement des images désactivé.');
+			}
+			});
+
+			document.addEventListener('keydown', function (e) {
+			if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+			e.preventDefault();
+			alert('L\'enregistrement de la page est désactivé.');
+			}
+			});
+
+			});
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Découvrez notre sélection de motos à vendre. Large gamme de marques et de modèles disponibles.">
+		<meta name="keywords" content="moto, vente, achat, concessionnaire, Harley Davidson, Yamaha, Honda, Kawasaki" ,"ducati" ,"bmw">
+		<meta name="author" content="{{siteSettings.siteName}}">
+		<meta name="robots" content="index, follow">
+		<meta name="revisit-after" content="7 days">
+		<meta name="language" content="fr">
+		<meta name="Content-Type" content="text/html">
+		<meta name="distribution" content="global">
+		<meta name="rating" content="general">
+		<meta name="googlebot" content="index, follow">
+		<meta name="bingbot" content="index, follow">
+		<meta name="msnbot" content="index, follow">
+		<meta name="alexabot" content="index, follow">
+
+		<title>
+			{% block title %}
+				{{ siteSettings.siteName }}
+			{% endblock %}
+		</title>
+
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		<link rel="stylesheet" href="{{asset('styles/app.css')}}" type="text/css">
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body style="-webkit-user-select: none;">
+
+
+		{% include 'partials/_navbar.html.twig' %}
+		{% block body %}{% endblock %}
+		{% include 'partials/_footer.html.twig' %}
+
+
+	</body>
 </html>

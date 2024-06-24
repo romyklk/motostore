@@ -1,0 +1,45 @@
+{% set price = ad.price / 100 %}
+
+{% set mainPicture = asset('uploads/ads/' ~ ad.mainPicture) %}
+{% set markPicture = asset('uploads/ads/' ~ ad.mark.picture) %}
+
+
+
+
+
+<div class="flex flex-col items-center justify-center gap-2 p-4 bg-white rounded shadow-lg">
+
+
+<img src="{{ mainPicture | imagine_filter('my_thumb_2') }}" alt="{{ ad.title ~ '-' ~ ad.reference }}" class="w-full h-48 object-cover rounded" style="object-position: center;aspect-ratio: 16/9;" loading="lazy">
+
+
+
+
+
+	<div class="flex justify-between w-full">
+		<span class="text-sm font-medium text-[#1f2641] border-2  p-1 rounded-md">{{ad.year}}</span>
+		{% if ad.reserved %}
+			<span class="text-sm font-bold text-[#fff] p-1 rounded-md bg-[#f75842]" title="Cette annonce est actuellement réservée">Réservé</span>
+
+		{% endif %}
+
+		{% if ad.mark.picture  is not null %}
+			<img src="{{ markPicture}}" alt="{{ ad.mark.name }}" class="object-contain rounded-full" style="object-position: center;width: 40px;height: 40px;">
+
+		{% else %}
+			<span class="text-sm font-medium text-[#1f2641]">{{ad.mark.name}}</span>
+
+		{% endif %}
+	</div>
+	<h5 class="font-semibold text-[#1f2641]">
+		{{ad.title }}
+	</h5>
+	<p class="text-[#1f2641]">
+		{{price | number_format(0, '.', ' ') ~ ' €'}}
+	</p>
+	<a href="{{ path('app_ad_show', {'slug': ad.slug}) }}" class="block w-full rounded bg-[#6c63ff] px-12 py-3 text-sm font-medium text-white shadow hover:bg-[#f75842] focus:outline-none focus:ring active:bg-[#f75842] sm:w-auto">
+
+		Voir l'annonce
+	</a>
+</div>
+

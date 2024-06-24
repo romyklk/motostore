@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Les avis de nos clients
+{% endblock %}
+
+
+{% block body %}
+	<div class="bg-gray-100 py-10">
+
+		<div class="relative isolate px-6 pt-14 lg:px-8">
+
+			<div class="mx-auto max-w-2xl">
+				<div class="text-center">
+<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl leading-normal">
+
+						Les
+						<span class="text-indigo-600">avis</span>
+						de nos clients
+					</h1>
+					<p class="mt-6 text-lg leading-12 text-gray-600">
+						Nous sommes fiers de vous présenter les avis de nos clients. Découvrez ce qu'ils pensent de nos services.
+					</p>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="container mx-auto my-4">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+			{% for review in reviews %}
+				<div class="relative group">
+					<div class="p-4 border border-gray-200 rounded transition duration-300 ease-in-out transform hover:shadow-lg hover:-translate-y-1 hover:scale-105 mx-5">
+
+						<div class="flex justify-center mb-4">
+							{% for i in 1.. review.stars %}
+
+								<svg class="w-5 h-5 fill-current text-yellow-500" viewbox="0 0 24 24">
+									<path d="M0 0h24v24H0z" fill="none"/>
+									<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+									<path d="M0 0h24v24H0z" fill="none"/>
+								</svg>
+
+							{% endfor %}
+						</div>
+
+						{% if review.title is not null %}
+							<h2 class="text-lg font-bold mt-3">
+								{{ review.title }}
+							</h2>
+
+						{% endif %}
+						<p class="text-gray-600 leading-12">
+							{{ review.content|raw }}
+						</p>
+						<p class="text-gray-500 mt-2">-
+							<span class="font-bold">
+								{{ review.clientName }}
+							</span>,
+							<span class="text-sm">le
+								{{ review.reviewsDate|date('d/m/Y') }}
+
+							</span>
+						</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+
+{% endblock %}

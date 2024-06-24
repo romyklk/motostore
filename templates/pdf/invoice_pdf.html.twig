@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+			}
+			.container {
+				width: 80%;
+				margin: 0 auto;
+			}
+			.header {
+				text-align: left;
+				margin-bottom: 20px;
+				display: flex;
+				justify-content: space-between;
+			}
+			.header img {
+				margin-right: auto;
+			}
+			.header .company-address {
+				margin-left: auto;
+				text-align: right;
+			}
+			.invoice-details {
+				margin-bottom: 20px;
+			}
+			.invoice-details table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+			.invoice-details table td {
+				padding: 8px;
+				border: 1px solid #ddd;
+			}
+			.items {
+				width: 100%;
+				border-collapse: collapse;
+			}
+			.items th,
+			.items td {
+				padding: 8px;
+				border: 1px solid #ddd;
+			}
+			.items th {
+				background-color: #f2f2f2;
+			}
+			.footer {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				text-align: center;
+				padding: 10px;
+				border-top: 1px solid #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<img src="{# {{ absolute_url(asset('')) }} #}" alt="Logo de la société" width="100" height="100">
+				<div class="company-address">
+					<p>Votre adresse de société ici</p>
+					<p>Autre ligne d'adresse de société</p>
+				</div>
+			</div>
+			<div class="invoice-details">
+				<table>
+					<tr>
+						<td>
+							<strong>Numéro de devis :</strong>
+							DEV{{ 'now'|date('Ymd') }}</td>
+						<td>
+							<strong>Date :</strong>
+							{{ 'now'|date('d/m/Y') }}</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Client :</strong>
+							{{ fullName }}</td>
+						<td>
+							<strong>Email :</strong>
+							{{ email }}</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Adresse :</strong>
+							123 Rue de la Facture</td>
+						<td>
+							<strong>Téléphone :</strong>
+							{{ phone }}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="items">
+				<table>
+					<thead>
+						<tr>
+							<th>Description</th>
+							<th>Prix</th>
+							<th rowspan="4" style="background-color: #fff;">
+								<img src="data:image/jpg;base64,{{ imageContent }}" alt="image" width="70%" height="200px">
+							</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						{% set price = ad.price / 100 %}
+						{% set fraisService = price * 0.1 %}
+						<tr>
+							<td>{{ ad.title | capitalize }}</td>
+							<td>{{ price | number_format(2, '.', ' ') }}
+								€</td>
+						</tr>
+						<tr>
+							<td colspan="1" style="text-align: right;">TVA (20 %)</td>
+							<td>{{ price * 0.2 | number_format(2, '.', ' ') }}
+								€</td>
+						</tr>
+						<tr>
+							<td colspan="1" style="text-align: right;">Frais de service</td>
+							<td>{{ fraisService | number_format(2, '.', ' ') }}
+								€</td>
+						</tr>
+						<tr>
+							<td colspan="1" style="text-align: right;">
+								<strong>Total</strong>
+							</td>
+							<td>
+								<strong>{{ (price + price * 0.2 + fraisService) | number_format(2, '.', ' ') }}
+									€</strong>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="footer">
+				<p>Mention légale : Vos informations légales ici</p>
+			</div>
+		</div>
+	</body>
+</html>

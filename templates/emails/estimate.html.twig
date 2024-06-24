@@ -1,0 +1,102 @@
+{# templates/email/devis_confirmation.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.container {
+				display: flex;
+				align-items: center;
+			}
+
+			.info {
+				flex: 1;
+				padding: 20px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				margin-right: 20px;
+			}
+
+			.car-image {
+				flex: 1;
+			}
+
+			.title {
+				margin-top: 50px;
+				justify-content: center;
+				text-align: center;
+			}
+			.btn {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #007bff;
+				color: white;
+				text-decoration: none;
+				border-radius: 5px;
+			}
+			.btn:hover {
+				background-color: #0056b3;
+			}
+			a {
+				color: white;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Confirmation de demande de devis</h1>
+
+		<p>Bonjour
+			{{ customerName }},</p>
+
+		<p>Nous avons bien reçu votre demande de devis pour l'annonce "
+			{{ ad.mark.name }}
+			{{ ad.title }}". Un conseiller vous contactera dans les plus brefs délais.</p>
+
+		<h2 class="title">
+			Récapitulatif de votre demande de devis
+		</h2>
+{% set adLink = 'https://127.0.0.1:8000/ad/2' ~ ad.slug %}
+{% set imageUrl = 'https://127.0.0.1:8000/uploads/ads/' ~ ad.mainPicture %}
+
+
+		<div class="container">
+			<div class="info">
+				<h3>Informations sur l'annonce</h3>
+				<p>
+					<strong>Titre :</strong>
+					{{ ad.title }}</p>
+				<p>
+					{% set price = ad.price|number_format(0, ',', ' ') %}
+					<strong>Prix :</strong>
+					{{ ad.price / 100 }}
+					€
+				</p>
+			</p>
+			<p>
+				<strong>Année :</strong>
+				{{ ad.year }}</p>
+			<p>
+				<strong>Kilométrage :</strong>
+				{{ ad.mileage }}
+				km</p>
+			<p>
+				<strong>Carburant :</strong>
+				{{ ad.fuel }}</p>
+			<p></p>
+			<a href="{{ adLink}}" class="btn">Voir l'annonce</a>
+		</div>
+
+		
+
+
+		<div class="car-image">
+			<img src="{{imageUrl}}" alt="{{ad.slug}}" class="max-lg:mx-auto" style="width: 100%; height: 400px;object-fit: contain;aspect-ratio: 16/9;object-position: center center;"/>
+
+		</div>
+	</body>
+</html></div><p>Merci de nous avoir contactés.</p><p>Cordialement,<br>Votre équipe
+								MOTO DREAMERS</p></body></html>

@@ -1,0 +1,293 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Service
+{% endblock %}
+
+
+{% block body %}
+	{# Hero Section Start  #}
+
+	<div class="relative bg-white  dark:bg-dark pt-4">
+		<div class="container mx-auto">
+			<div class="-mx-4 flex flex-wrap items-center">
+				<div class="w-full px-4 lg:w-5/12">
+					<div class="hero-content" id="about-us">
+						<h1 class="mb-5 text-4xl font-bold !leading-[1.208] text-dark dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl">Votre Partenaire de Confiance</h1>
+
+						<p class="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6">
+							En tant que professionnels établis de l'industrie, nous mettons à votre disposition des produits et des services de première classe, répondant aux normes les plus strictes de qualité. Notre équipe dévouée de spécialistes est là pour vous offrir un accompagnement de qualité supérieure dans la réalisation de vos projets automobiles.
+
+						</p>
+
+
+					</div>
+				</div>
+				<div class="hidden px-4 lg:block lg:w-1/12"></div>
+				<div class="w-full px-4 lg:w-6/12">
+					<div class="lg:ml-auto lg:text-right">
+						<div class="relative z-10 inline-block pt-11 lg:pt-0">
+							<img src="{{asset('uploads/back.jpg') | imagine_filter('my_thumb_3') }}" alt="hero" class="max-w-full lg:ml-auto"/>
+
+
+							<span class="absolute -bottom-8 -left-8 z-[-1]">
+								<svg width="93" height="93" viewbox="0 0 93 93" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="2.5" cy="2.5" r="2.5" fill="#3056D3"/>
+									<circle cx="2.5" cy="24.5" r="2.5" fill="#3056D3"/>
+									<circle cx="2.5" cy="46.5" r="2.5" fill="#3056D3"/>
+									<circle cx="2.5" cy="68.5" r="2.5" fill="#3056D3"/>
+									<circle cx="2.5" cy="90.5" r="2.5" fill="#3056D3"/>
+									<circle cx="24.5" cy="2.5" r="2.5" fill="#3056D3"/>
+									<circle cx="24.5" cy="24.5" r="2.5" fill="#3056D3"/>
+									<circle cx="24.5" cy="46.5" r="2.5" fill="#3056D3"/>
+									<circle cx="24.5" cy="68.5" r="2.5" fill="#3056D3"/>
+									<circle cx="24.5" cy="90.5" r="2.5" fill="#3056D3"/>
+									<circle cx="46.5" cy="2.5" r="2.5" fill="#3056D3"/>
+									<circle cx="46.5" cy="24.5" r="2.5" fill="#3056D3"/>
+									<circle cx="46.5" cy="46.5" r="2.5" fill="#3056D3"/>
+									<circle cx="46.5" cy="68.5" r="2.5" fill="#3056D3"/>
+									<circle cx="46.5" cy="90.5" r="2.5" fill="#3056D3"/>
+									<circle cx="68.5" cy="2.5" r="2.5" fill="#3056D3"/>
+									<circle cx="68.5" cy="24.5" r="2.5" fill="#3056D3"/>
+									<circle cx="68.5" cy="46.5" r="2.5" fill="#3056D3"/>
+									<circle cx="68.5" cy="68.5" r="2.5" fill="#3056D3"/>
+									<circle cx="68.5" cy="90.5" r="2.5" fill="#3056D3"/>
+									<circle cx="90.5" cy="2.5" r="2.5" fill="#3056D3"/>
+									<circle cx="90.5" cy="24.5" r="2.5" fill="#3056D3"/>
+									<circle cx="90.5" cy="46.5" r="2.5" fill="#3056D3"/>
+									<circle cx="90.5" cy="68.5" r="2.5" fill="#3056D3"/>
+									<circle cx="90.5" cy="90.5" r="2.5" fill="#3056D3"/>
+								</svg>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{#  Hero Section End #}
+
+	{#  Services Section Start#}
+
+	<section class="pb-1 pt-2 dark:bg-dark">
+		<div class="container mx-auto">
+			<div class="-mx-4 flex flex-wrap">
+				<div class="w-full px-4">
+					<div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20 pt-5" id="why-us">
+						<span class="mb-2 block text-lg font-semibold text-primary">
+							Nos Services
+						</span>
+						<h2 class="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
+							Découvrez ce que nous proposons
+
+						</h2>
+						<p class="text-base text-body-color dark:text-dark-6">
+							Notre gamme de services est conçue pour répondre à vos besoins spécifiques. Que vous recherchiez la qualité, des services d'entretien ou des conseils d'experts, nous sommes là pour vous offrir des solutions sur mesure. Explorez notre gamme complète et trouvez ce dont vous avez besoin pour atteindre vos objectifs.
+
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="-mx-4 flex flex-wrap">
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg class="w-20 h-20 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewbox="0 0 24 24">
+								<path fill-rule="evenodd" stroke="currentColor" stroke-width="2" d="M20.337 3.664c.213.212.354.486.404.782.294 1.711.657 5.195-.906 6.76-1.77 1.768-8.485 5.517-10.611 6.683a.987.987 0 0 1-1.176-.173l-.882-.88-.877-.884a.988.988 0 0 1-.173-1.177c1.165-2.126 4.913-8.841 6.682-10.611 1.562-1.563 5.046-1.198 6.757-.904.296.05.57.191.782.404ZM5.407 7.576l4-.341-2.69 4.48-2.857-.334a.996.996 0 0 1-.565-1.694l2.112-2.111Zm11.357 7.02-.34 4-2.111 2.113a.996.996 0 0 1-1.69-.565l-.422-2.807 4.563-2.74Zm.84-6.21a1.99 1.99 0 1 1-3.98 0 1.99 1.99 0 0 1 3.98 0Z" clip-rule="evenodd"/>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Guidance Expertisée
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Nos conseils sur mesure vous aident à faire le meilleur choix, en tenant compte de votre budget et de vos exigences spécifiques. Nous vous accompagnons tout au long du processus pour vous assurer une satisfaction totale.
+						</p>
+					</div>
+				</div>
+
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3 ">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg class="w-20 h-20 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewbox="0 0 24 24">
+								<path fill-rule="evenodd" stroke="currentColor" stroke-width="2" d="M15.03 9.684h3.965c.322 0 .64.08.925.232.286.153.532.374.717.645a2.109 2.109 0 0 1 .242 1.883l-2.36 7.201c-.288.814-.48 1.355-1.884 1.355-2.072 0-4.276-.677-6.157-1.256-.472-.145-.924-.284-1.348-.404h-.115V9.478a25.485 25.485 0 0 0 4.238-5.514 1.8 1.8 0 0 1 .901-.83 1.74 1.74 0 0 1 1.21-.048c.396.13.736.397.96.757.225.36.32.788.269 1.211l-1.562 4.63ZM4.177 10H7v8a2 2 0 1 1-4 0v-6.823C3 10.527 3.527 10 4.176 10Z" clip-rule="evenodd"/>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Assistance Complète
+
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Notre équipe dévouée est là pour vous offrir une assistance complète, de la planification à la réalisation de votre projet. Nous sommes là pour vous aider à chaque étape du processus, pour vous assurer une expérience sans stress et une satisfaction totale.
+						</p>
+					</div>
+				</div>
+
+
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg class="w-20 h-20 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewbox="0 0 24 24">
+								<path fill-rule="evenodd" stroke="currentColor" stroke-width="2" d="M8 12.732A1.99 1.99 0 0 1 7 13H3v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2h-2a4 4 0 0 1-4-4v-2.268ZM7 11V7.054a2 2 0 0 0-1.059.644l-2.46 2.87A2 2 0 0 0 3.2 11H7Z" clip-rule="evenodd"/>
+								<path fill-rule="evenodd" stroke="currentColor" stroke-width="2" d="M14 3.054V7h-3.8c.074-.154.168-.3.282-.432l2.46-2.87A2 2 0 0 1 14 3.054ZM16 3v4a2 2 0 0 1-2 2h-4v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3Z" clip-rule="evenodd"/>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Professionnalisme Assuré
+
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Notre engagement envers le professionnalisme se reflète dans chaque aspect de notre service. Nous nous efforçons de rendre votre expérience d'achat aussi fluide et sans stress que possible, vous offrant ainsi une sensation familière, comme si vous achetiez une voiture dans votre pays d'origine.
+
+						</p>
+					</div>
+				</div>
+
+
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg class="w-20 h-20 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewbox="0 0 24 24">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7H7m2 3H7m2 3H7m4 2v2m3-2v2m3-2v2M4 5v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-9a1 1 0 0 1-1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1Z"/>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Solutions Sur Mesure
+
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Nous comprenons que chaque client est unique, c'est pourquoi nous offrons des solutions sur mesure pour répondre à vos besoins spécifiques. Quels que soient vos besoins, nous sommes là pour vous aider à trouver la solution parfaite pour vous.
+						</p>
+					</div>
+				</div>
+
+
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg class="w-20 h-20 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewbox="0 0 24 24">
+								<path fill-rule="evenodd" d="M11 4.717c-2.286-.58-4.16-.756-7.045-.71A1.99 1.99 0 0 0 2 6v11c0 1.133.934 2.022 2.044 2.007 2.759-.038 4.5.16 6.956.791V4.717Zm2 15.081c2.456-.631 4.198-.829 6.956-.791A2.013 2.013 0 0 0 22 16.999V6a1.99 1.99 0 0 0-1.955-1.993c-2.885-.046-4.76.13-7.045.71v15.081Z" clip-rule="evenodd"/>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Votre Histoire, Notre Passion
+
+
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Chaque client a une histoire unique, et nous sommes honorés de faire partie de la vôtre. En tant que concessionnaire, nous nous engageons à créer des expériences mémorables et à contribuer à chaque chapitre de votre histoire.
+
+
+						</p>
+					</div>
+				</div>
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewbox="0 0 24 24" style="fill: white;">
+								<path d="m2.344 15.271 2 3.46a1 1 0 0 0 1.366.365l1.396-.806c.58.457 1.221.832 1.895 1.112V21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1.598a8.094 8.094 0 0 0 1.895-1.112l1.396.806c.477.275 1.091.11 1.366-.365l2-3.46a1.004 1.004 0 0 0-.365-1.366l-1.372-.793a7.683 7.683 0 0 0-.002-2.224l1.372-.793c.476-.275.641-.89.365-1.366l-2-3.46a1 1 0 0 0-1.366-.365l-1.396.806A8.034 8.034 0 0 0 15 4.598V3a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v1.598A8.094 8.094 0 0 0 7.105 5.71L5.71 4.904a.999.999 0 0 0-1.366.365l-2 3.46a1.004 1.004 0 0 0 .365 1.366l1.372.793a7.683 7.683 0 0 0 0 2.224l-1.372.793c-.476.275-.641.89-.365 1.366zM12 8c2.206 0 4 1.794 4 4s-1.794 4-4 4-4-1.794-4-4 1.794-4 4-4z"></path>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Vos Besoins, Notre Engagement
+
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Chez nous, votre satisfaction est notre priorité absolue. Nous nous engageons à comprendre vos besoins et à vous proposer des solutions personnalisées qui dépassent vos attentes. Votre confiance est notre plus grande récompense.
+
+						</p>
+					</div>
+				</div>
+
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg class="w-20 h-20 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="112" height="112" fill="none" viewbox="0 0 24 24" style="fill: white;">
+								<path stroke="white" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Une Équipe à Votre Écoute
+
+
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Nous sommes à votre service, prêts à répondre à toutes vos questions et à vous accompagner à chaque étape de votre parcours . Notre équipe dévouée met tout en œuvre pour rendre votre expérience chez nous aussi agréable que possible.
+
+
+						</p>
+					</div>
+				</div>
+
+
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg class="w-20 h-20 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewbox="0 0 24 24">
+								<path fill-rule="evenodd" d="M12 2a7 7 0 0 0-7 7 3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1V9a5 5 0 1 1 10 0v7.083A2.919 2.919 0 0 1 14.083 19H14a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 1.732-1h.351a4.917 4.917 0 0 0 4.83-4H19a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3 7 7 0 0 0-7-7Zm1.45 3.275a4 4 0 0 0-4.352.976 1 1 0 0 0 1.452 1.376 2.001 2.001 0 0 1 2.836-.067 1 1 0 1 0 1.386-1.442 4 4 0 0 0-1.321-.843Z" clip-rule="evenodd"/>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Votre Voix Compte
+
+
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Nous valorisons votre opinion et nous nous efforçons d'améliorer continuellement nos services en fonction de vos retours. Votre satisfaction est notre mesure de succès, et nous sommes reconnaissants de chaque opportunité de mieux vous servir.
+						</p>
+					</div>
+				</div>
+
+
+				<div class="w-full px-4 md:w-1/2 lg:w-1/3">
+					<div class="mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg dark:bg-dark-2 md:px-7 xl:px-10 border border-indigo-600">
+
+						<div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary" style="background-color: #3056D3;">
+							<svg class="w-20 h-20 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewbox="0 0 24 24">
+								<path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
+							</svg>
+
+
+						</div>
+						<h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
+							Une Relation de Confiance
+
+
+						</h4>
+						<p class="text-body-color dark:text-dark-6">
+							Nous croyons en la transparence, l'intégrité et le respect dans toutes nos interactions avec nos clients. En choisissant notre concession, vous choisissez une relation de confiance basée sur des valeurs solides et un engagement sincère envers votre satisfaction.
+
+						</p>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}

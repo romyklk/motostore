@@ -1,4 +1,4 @@
-import './bootstrap.js';
+//import './bootstrap.js';
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -7,4 +7,45 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+// Start Alpine.js
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
+
+
+
+// Menu mobile
+document.addEventListener('DOMContentLoaded', function () {
+  const button = document.getElementById('navbar-toggle');
+  const menu = document.getElementById('navbar-default');
+
+  button.addEventListener('click', function () {
+    menu.classList.toggle('hidden');
+  });
+});
+
+
+let currentSlide = 0;
+
+function prevSlide() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  slides[currentSlide].style.transform = 'translateX(100%)';
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  slides[currentSlide].style.transform = 'translateX(0)';
+}
+
+function nextSlide() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  slides[currentSlide].style.transform = 'translateX(-100%)';
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].style.transform = 'translateX(0)';
+}
+
+
+
+
+
+
+
+
+

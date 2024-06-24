@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }} | Registration
+{% endblock %}
+
+{% block body %}
+
+
+<div class="flex items-center justify-center min-h-screen bg-gray-900 px-6 py-12 lg:px-8" style="background-color:#1f2641">
+	<div class="sm:w-full sm:max-w-sm">
+<img class="mx-auto h-10 w-auto" src="{{asset('uploads/' ~ siteSettings.siteLogo)}}" alt="{{siteSettings.siteName}}">
+
+		<h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-100">
+			Registration
+			<span class="text-red-500">For Free </span>
+		</h2>
+		{{ form_errors(registrationForm) }}
+		{{ form_start(registrationForm, {'attr': {'class': 'mt-10 space-y-6'}}) }}
+
+		<div>
+			<label for="email" class="block text-sm font-medium leading-6 text-gray-100">Email</label>
+			<div class="mt-1">
+				{{ form_widget(registrationForm.email, {'attr': {'class': 'block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm'}}) }}
+				<div class="text-red-500 text-sm mt-1">{{ form_errors(registrationForm.email) }}</div>
+			</div>
+		</div>
+
+		<div>
+			<div class="flex items-center justify-between">
+				<label for="password" class="block text-sm font-medium leading-6 text-gray-100">Password</label>
+			</div>
+			<div class="mt-1">
+				{{ form_widget(registrationForm.plainPassword.first, {
+                    'label': 'Password',
+                    'attr': {'class': 'block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm'}
+                }) }}
+				<div class="text-red-500 text-sm mt-1">{{ form_errors(registrationForm.plainPassword.first) }}</div>
+			</div>
+		</div>
+
+		<div>
+			<div class="flex items-center justify-between">
+				<label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-100">Confirm  Your Password</label>
+			</div>
+			<div class="mt-1">
+				{{ form_widget(registrationForm.plainPassword.second, {
+                    'label': 'Confirm Password',
+                    'attr': {'class': 'block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm'}
+                }) }}
+				<div class="text-red-500 text-sm mt-1">{{ form_errors(registrationForm.plainPassword.second) }}</div>
+			</div>
+		</div>
+
+		<div>
+			<div class="flex items-center">
+				{{ form_widget(registrationForm.agreeTerms, { 
+                    'attr': {
+                        'class': 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out',
+                        'type': 'checkbox',
+                        'required': 'required'
+                    }
+                }) }}
+
+				<label for="agreeTerms" class="ml-2 block text-sm leading-5 text-gray-100">
+					I agree to the
+					<a href="#" class="text-indigo-600 hover:text-indigo-500">
+						Terms of Service
+					</a>
+				</label>
+			</div>
+		</div>
+
+		<div>
+			<button type="submit" class="block w-full bg-indigo-600 py-2 px-4 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 focus:ring-offset-gray-900">
+				Register
+			</button>
+		</div>
+		{{ form_end(registrationForm) }}
+
+		<p class="mt-8 text-center text-sm text-gray-100">
+			Already have an account?
+			<a href="{{path('app_login')}}" class="font-semibold text-indigo-600 hover:text-indigo-500">
+				Login
+			</a>
+		</p>
+	</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

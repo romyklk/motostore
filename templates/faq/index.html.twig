@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{parent()}}
+	- FAQ
+{% endblock %}
+
+{% block body %}
+
+	<div class="max-w-screen-sm mx-auto ">
+		<div class="text-center mb-16">
+			<p class="mt-4 text-sm leading-7 text-gray-500 font-regular">
+				F.A.Q
+			</p>
+			<h3 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-gray-900">
+				Questions
+				<span class="text-indigo-600">fréquentes
+				</span>sur le site
+			</h3>
+		</div>
+	</div>
+	<div class="px-6 pt-5 pb-8 mt-3 ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-2xl sm:rounded-lg sm:px-10">
+		<div class="mx-auto px-5">
+			<div class="mx-auto mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
+				{% for faq in faqs %}
+					<div class="shadow-sm py-5 px-4 my-3 rounded-lg bg-[#f0f9ff]">
+
+						<details class="group">
+							<summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+								<span class="text-indigo-600 font-semibold">{{faq.question}}</span>
+								<span class="transition group-open:rotate-180">
+									<svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="24">
+										<path d="M6 9l6 6 6-6"></path>
+									</svg>
+								</span>
+							</summary>
+							<p class="group-open:animate-fadeIn mt-3 text-neutral-600 border-l-4 border-indigo-500">{{faq.content|raw}}</p>
+
+						</details>
+					</div>
+				{% endfor %}
+			</div>
+
+
+		</div>
+	</div>
+
+{% endblock %}
